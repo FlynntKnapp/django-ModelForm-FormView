@@ -16,7 +16,7 @@
             "justMyCode": true
         },
         {
-            "name": "Python: Django",
+            "name": "Python: Django Test",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}\\manage.py",

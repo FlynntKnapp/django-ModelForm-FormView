@@ -2,41 +2,60 @@
 
 * Basic example of Django form usage.
 
-## Application Structure
+## `things` Application Structure
 
-* Model:
-  * `Thing`:
-    * `name` (CharField)
-    * `description` (TextField)
-    * `created_at` (DateTimeField)
-    * `updated_at` (DateTimeField)
+* Models:
+  * `Thing`
+    | Field | Type | Description |
+    | --- | --- | --- |
+    | `name` | `CharField` | Name of the thing. |
+    | `created_at` | `DateTimeField` | Date and time the thing was created. |
+    | `updated_at` | `DateTimeField` | Date and time the thing was last updated. |
 
 * Views:
-  * `ThingCreateView`:
-    * `form_class` (ThingForm)
-    * `template_name` (thing_create.html)
-    * `success_url` (reverse_lazy('thing-list'))
+  * `ThingCreateView`
+    | Attribute | Value |
+    | --- | --- |
+    | `form_class` | `ThingForm` |
+    | `template_name` | `thing_create.html` |
+    | `success_url` | `reverse_lazy('thing-list')` |
 
-  * `ThingListView`:
-    * `template_name` (thing_list.html)
-    * `queryset` (Thing.objects.all())
+  * `ThingListView`
+    | Attribute | Value |
+    | --- | --- |
+    | `template_name` | `thing_list.html` |
+    | `queryset` | `Thing.objects.all()` |
   
-  * `ThingUpdateView`:
-    * `form_class` (ThingForm)
-    * `template_name` (thing_update.html)
-    * `success_url` (reverse_lazy('thing-list'))
-    * `queryset` (Thing.objects.all())
+  * `ThingDetailView`
+    | Attribute | Value |
+    | --- | --- |
+    | `template_name` | `thing_detail.html` |
+    | `queryset` | `Thing.objects.all()` |
 
-  * `ThingDeleteView`:
-    * `template_name` (thing_delete.html)
-    * `success_url` (reverse_lazy('thing-list'))
-    * `queryset` (Thing.objects.all())
+  * `ThingUpdateView`
+    | Attribute | Value |
+    | --- | --- |
+    | `form_class` | `ThingForm` |
+    | `template_name` | `thing_update.html` |
+    | `success_url` | `reverse_lazy('thing-list')` |
+    | `queryset` | `Thing.objects.all()` |
+
+  * `ThingDeleteView`
+    | Attribute | Value |
+    | --- | --- |
+    | `template_name` | `thing_delete.html` |
+    | `success_url` | `reverse_lazy('thing-list')` |
+    | `queryset` | `Thing.objects.all()` |
 
 * URLs:
-  * `thing-create` (ThingCreateView.as_view())
-  * `thing-list` (ThingListView.as_view())
-  * `thing-update` (ThingUpdateView.as_view())
-  * `thing-delete` (ThingDeleteView.as_view())
+
+  | URL Route | View | View Name |
+  | --- | --- | --- |
+  | `things/create/` | `ThingCreateView.as_view()` | `create` |
+  | `things/list/` | `ThingListView.as_view()` | `list` |
+  | `things/<int:pk>/` | `ThingDetailView.as_view()` | `detail` |
+  | `things/<int:pk>/update/` | `ThingUpdateView.as_view()` | `update` |
+  | `things/<int:pk>/delete/` | `ThingDeleteView.as_view()` | `delete` |
 
 ## Resources
 
