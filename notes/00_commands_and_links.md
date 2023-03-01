@@ -1,5 +1,13 @@
 # Commands and Links
 
+## Development Links
+
+| URL | Description |
+| --- | --- |
+| <http://localhost:8000/> | Server Root |
+| <http://localhost:8000/things/> | `things` List View |
+
+
 ## Commands
 
 * `pipenv install`

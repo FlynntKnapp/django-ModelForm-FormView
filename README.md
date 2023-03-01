@@ -1,6 +1,6 @@
 # Django Basic Model Form Example
 
-* Basic example of Django form usage.
+* Basic example of Django `ModelForm` usage.
 
 ## `things` Application Structure
 
