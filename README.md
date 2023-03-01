@@ -57,12 +57,41 @@
   | `things/<int:pk>/update/` | `ThingUpdateView.as_view()` | `update` |
   | `things/<int:pk>/delete/` | `ThingDeleteView.as_view()` | `delete` |
 
+## Interesting and/or New Concepts
+
+* In a `FormView`, does `form_valid()` execute before `get_success_url()`?
+  * Yes.
+    * Confirmed via breakpoints in `form_valid()` and `get_success_url()`.
+    * Confirm via Django documentation for [`FormView`](https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-editing/#django.views.generic.edit.FormView) or `FormView` parent classes.
+
+## Example Code
+
+* `ThingFormView` in [`things/views.py`](./things/views.py):
+  * We create the object directly rathen than use `form.save()` because we want to use the `id` of the newly created `Thing` object in `get_success_url()`.
+
+  ```python
+  class ThingFormView(FormView):
+      form_class = ThingForm
+      template_name = 'things/thing_form.html'
+
+      def form_valid(self, form):
+          # Create a `thing` attribute of `self`: `self.thing`
+          # This will allow us to access the `id` of the newly created `Thing` object in `get_success_url()`.
+          self.thing = Thing.objects.create(name=form.cleaned_data['name'])
+          return super(ThingFormView, self).form_valid(form)
+
+      def get_success_url(self):
+          # We can get the `id` of the newly created `Thing` object from `self.thing.id` and use that to build the URL.
+          return reverse('things:detail', kwargs={'pk': self.thing.id})
+  ```
+
 ## Resources
 
 * <https://pypi.org/project/Django/>
 * <https://pypi.org/project/docutils/>
 
 * [Working with forms](https://docs.djangoproject.com/en/4.1/topics/forms/#working-with-forms)
+* [`django.views.generic.edit.FormView`](https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-editing/#django.views.generic.edit.FormView)
 * [`django.forms.Form`](https://docs.djangoproject.com/en/4.1/ref/forms/api/#django.forms.Form)
 * [`django.forms.ModelForm`](https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/#django.forms.ModelForm)
 * [`user-admin-over-complicated-example/users/forms.py`](https://github.com/brucestull/examples/blob/main/django/user-admin-over-complicated-example/users/forms.py)

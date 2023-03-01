@@ -22,19 +22,14 @@ class ThingFormView(FormView):
     template_name = 'things/thing_form.html'
 
     def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
+        # Create a `thing` attribute of `self`: `self.thing`
+        # This will allow us to access the `id` of the newly created `Thing` object in `get_success_url()`.
+        self.thing = Thing.objects.create(name=form.cleaned_data['name'])
+        return super(ThingFormView, self).form_valid(form)
 
     def get_success_url(self):
-        # id_just_created = Thing.objects.latest('id').id
-        # id_just_created = Thing.objects.last().id
-        # id_just_created = Thing.objects.order_by('-id').first().id
-        # id_just_created = Thing.objects.order_by('id').last().id
-        the_thing_name = self.request.POST['name']
-        id_just_created = Thing.objects.get(name=the_thing_name).id
-        return reverse('things:detail', kwargs={'pk': id_just_created})
-
-        # return '/things/'
+        # We can get the `id` of the newly created `Thing` object from `self.thing.id` and use that to build the URL.
+        return reverse('things:detail', kwargs={'pk': self.thing.id})
 
 
 class ThingDetailView(DetailView):
