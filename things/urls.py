@@ -5,9 +5,8 @@ from things import views
 
 app_name = 'things'
 urlpatterns = [
-    path('goodbuy', views.goodbuy, name='goodbuy'),
-
+    # URL route for the `ThingFormView` view, which will be used to create a new `Thing` object:
     path('form', views.ThingFormView.as_view(), name='form'),
-    path('<int:pk>/', views.ThingDetailView.as_view(), name='detail'),
+    # URL route for the `ThingListView` view, which will be used to list all `Thing` objects:
     path('', views.ThingListView.as_view(), name='list'),
 ]

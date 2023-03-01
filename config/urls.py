@@ -14,15 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.urls import include
+from django.urls import path, include
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('', RedirectView.as_view(pattern_name='things:goodbuy')),
+    # Redirect the server root URL to the `things` app:
+    path('', RedirectView.as_view(url='/things/')),
 
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
 
+    # Route requests that begin with `things/` to the `things` app:
     path('things/', include('things.urls')),
 ]

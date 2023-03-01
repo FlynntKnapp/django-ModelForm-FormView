@@ -66,6 +66,8 @@
 
 ## Example Code
 
+### `ThingFormView`
+
 * `ThingFormView` in [`things/views.py`](./things/views.py):
   * We create the object directly rathen than use `form.save()` because we want to use the `id` of the newly created `Thing` object in `get_success_url()`.
 
@@ -84,6 +86,21 @@
           # We can get the `id` of the newly created `Thing` object from `self.thing.id` and use that to build the URL.
           return reverse('things:detail', kwargs={'pk': self.thing.id})
   ```
+
+### `return_hard_coded_httpresponse()`
+
+* Strings which contain HTML will render as HTML in the browser.
+
+```python
+def return_hard_coded_httpresponse(request):
+    return HttpResponse(
+        '<a href="/admin/"><code>admin:index</code></a>'
+        '<br>'
+        '<a href="/things/"><code>things:list</code></a>'
+        '<h1><code>things:goodbuy</code></h1>'
+        '<div>Goodbuy, world! Enjoy the Sails!</div>'
+    )
+```
 
 ## Resources
 

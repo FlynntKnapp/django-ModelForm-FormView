@@ -2,28 +2,24 @@
     href={% url 'admin:index' %}
     >
     <code>admin:index</code>
-</a>
-<br>
-<a
-    href="{% url 'things:goodbuy' %}"
-    >
-    <code>things:goodbuy</code>
+    View
 </a>
 <br>
 <a
     href="{% url 'things:form' %}"
     >
     <code>things:form</code>
+    View
 </a>
 
-<h1><code>things:list</code></h1>
+<h1>Things</h1>
 
 <h2><code>object_list</code></h2>
 {% for item in object_list %}
-    <p><a href="{% url 'things:detail' item.id %}">{{ item }}</a></p>
+    <p>{{ item }}</p>
 {% endfor %}
-
+    
 <h2><code>thing_list</code></h2>
 {% for item in thing_list %}
-    <p><a href="{% url 'things:detail' item.id %}">{{ item }}</a></p>
+    <p>{{ item }}</p>
 {% endfor %}

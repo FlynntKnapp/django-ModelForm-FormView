@@ -2,13 +2,17 @@ from django.db import models
 from django.urls import reverse
 
 class Thing(models.Model):
+    """
+    Model for a `Thing` object.
+
+    This is a simple object with only three fields:
+    - `name`: a `CharField` with a max length of 100 characters.
+    - `created_at`: a `DateTimeField` that is automatically set to the current date/time when the object is created.
+    - `updated_at`: a `DateTimeField` that is automatically set to the current date/time when the object is updated.
+    """
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
-
-    def get_absolute_url(self):
-        return reverse('things:detail', args=(self.pk))
-        # return reverse('things:detail', kwargs={'pk': self.pk})

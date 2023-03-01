@@ -1,3 +1,11 @@
+<a
+    href="{% url 'things:list' %}"
+    >
+    <code>things:list</code>
+    View
+</a>
+<br>
+
 <form method='post'>
     {% csrf_token %}
     {{ form.as_p }}
