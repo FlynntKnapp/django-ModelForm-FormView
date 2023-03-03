@@ -6,6 +6,10 @@ from things.models import Thing
 from things.forms import ThingForm
 
 
+class ThingListView(ListView):
+    model = Thing
+
+
 class ThingFormView(FormView):
     """
     View for a user to create a new `Thing`.
@@ -37,7 +41,3 @@ class ThingFormView(FormView):
         """
         form.save()
         return super(ThingFormView, self).form_valid(form)
-
-
-class ThingListView(ListView):
-    model = Thing
