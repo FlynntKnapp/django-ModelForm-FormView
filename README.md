@@ -112,3 +112,4 @@ def return_hard_coded_httpresponse(request):
 * [`django.forms.Form`](https://docs.djangoproject.com/en/4.1/ref/forms/api/#django.forms.Form)
 * [`django.forms.ModelForm`](https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/#django.forms.ModelForm)
 * [`user-admin-over-complicated-example/users/forms.py`](https://github.com/brucestull/examples/blob/main/django/user-admin-over-complicated-example/users/forms.py)
+* [`django.forms.models` - github.com/django](https://github.com/django/django/blob/main/django/forms/models.py)
