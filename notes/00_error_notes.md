@@ -60,6 +60,17 @@ class ThingFormView(FormView):
         return reverse_lazy('things:list')
 ```
 
+### Disable our Implementation of `form_valid(self, form)`
+
+1. HTTP `GET` request to the view URL
+
+    * Success
+
+2. HTTP `POST` request to the view URL
+  
+    * Functional Issue:
+      * The `Thing` object is not created in the database.
+
 ### Implement `success_url = reverse('things:list')`
 
 * Error:

@@ -8,9 +8,12 @@ class Thing(models.Model):
     This is a simple object with only three fields:
     - `name`: a `CharField` with a max length of 100 characters.
     - `created_at`: a `DateTimeField` that is automatically set to the current date/time when the object is created.
-    - `updated_at`: a `DateTimeField` that is automatically set to the current date/time when the object is updated.
+    - `updated_at`: a `DateTimeField` that is automatically set to the current date/time when method `Model.save()` is executed.
     """
-    name = models.CharField(max_length=100)
+    name = models.CharField(
+        max_length=100,
+        verbose_name='Thing Name',
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
