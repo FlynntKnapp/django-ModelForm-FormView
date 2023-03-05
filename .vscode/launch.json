@@ -13,7 +13,7 @@
                 "runserver"
             ],
             "django": true,
-            "justMyCode": true
+            "justMyCode": false
         },
         {
             "name": "Python: Django Test",
@@ -25,6 +25,54 @@
             ],
             "django": true,
             "justMyCode": true
+        },
+        // {
+        //     "name": "coverage run",
+        //     "type": "python",
+        //     "request": "launch",
+        //     "program": "C:/Users/FlynntKnapp/.virtualenvs/django-ModelForm-FormView-XJWlRQLZ/Scripts/coverage.exe",
+        //     "args": [
+        //         "run",
+        //         "--source=.",
+        //         "--omit=**/migrations/*",
+        //         "${workspaceFolder}\\manage.py",
+        //         "test",
+        //     ],
+        // },
+        {
+            "name": "coverage report",
+            "type": "python",
+            "request": "launch",
+            "program": "C:/Users/FlynntKnapp/.virtualenvs/django-ModelForm-FormView-XJWlRQLZ/Scripts/coverage.exe",
+            "args": [
+                "report",
+                "-m",
+                // "--omit=**/migrations/*,**/config/*,**/manage.py,**/tests/test*",
+                "--omit=**/migrations/*,**/manage.py",
+                "--skip-empty",
+            ],
+        },
+        {
+            "name": "coverage run",
+            "type": "python",
+            "request": "launch",
+            "program": "C:/Users/FlynntKnapp/.virtualenvs/django-ModelForm-FormView-XJWlRQLZ/Scripts/coverage.exe",
+            "args": [
+                "run",
+                // "--omit=**/migrations/*,**/config/*,**/manage.py,**/tests/test*",
+                // "--omit=things/**/__init__*",
+                // "--include=./*",
+                // "--source=.",
+                "--omit=**/migrations/*",
+                "${workspaceFolder}\\manage.py",
+                "test",
+                // "things",
+                // `NOSE_ARGS`: ["--with-coverage", "--cover-package=things", "-v", "1"],
+                "--with-coverage",
+                "--cover-package=things",
+                "-v",
+                "1",
+            ],
         },
     ]
 }

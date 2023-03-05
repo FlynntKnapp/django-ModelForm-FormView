@@ -106,6 +106,8 @@ def return_hard_coded_httpresponse(request):
 
 * <https://pypi.org/project/Django/>
 * <https://pypi.org/project/docutils/>
+* <https://pypi.org/project/coverage/>
+* <https://pypi.org/project/django-nose/>
 
 * [Working with forms](https://docs.djangoproject.com/en/4.1/topics/forms/#working-with-forms)
 * [`django.views.generic.edit.FormView`](https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-editing/#django.views.generic.edit.FormView)
@@ -113,3 +115,4 @@ def return_hard_coded_httpresponse(request):
 * [`django.forms.ModelForm`](https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/#django.forms.ModelForm)
 * [`user-admin-over-complicated-example/users/forms.py`](https://github.com/brucestull/examples/blob/main/django/user-admin-over-complicated-example/users/forms.py)
 * [`django.forms.models` - github.com/django](https://github.com/django/django/blob/main/django/forms/models.py)
+* [Measuring Coverage - django-testing-docs.readthedocs.io](https://django-testing-docs.readthedocs.io/en/latest/coverage.html)

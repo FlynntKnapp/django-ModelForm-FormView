@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
 
     'things.apps.ThingsConfig',
+
+    'django_nose',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +127,20 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+##################
+# Django Nose Settings
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# `NOSE_ARGS` is a list of arguments that will be passed to `nose`.
+# These arguments have been moved to `launch.json`.
+NOSE_ARGS = [
+    # '--with-coverage',
+    # Tell nose to measure coverage on the 'foo' and 'bar' apps
+    # '--cover-package=foo,bar',
+    # '--cover-package=things',
+
+    # '--collect-only',
+]
+##################
