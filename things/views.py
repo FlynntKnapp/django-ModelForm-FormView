@@ -29,13 +29,14 @@ class ThingFormView(FormView):
 
     def form_valid(self, form):
         """
-        Actions to perform is the form is valid:
-        - Use the `save()` method of the `form` to create a new `Thing`
+        Actions to perform if the form is valid:
+        1. Use the `save()` method of the `form` to create a new `Thing`
         object from the data input into the form.
-        - Use the parent class's `form_valid()` method to redirect to
+        2. Use the parent class's `form_valid()` method to redirect to
         the `success_url`, defined above.
 
         This method is required for the `Thing` object to be created.
+        If this method is not implemented, the `Thing` object will not be created.
 
         We are using the `save()` method of `django.forms.models.BaseModelForm`.
         """
